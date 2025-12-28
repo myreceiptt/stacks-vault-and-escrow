@@ -202,13 +202,3 @@ Deployment plan:
 
 ---
 
-## Closing Note
-
-This repository is not a finished product.
-
-It is a **record of intent**, a **discipline of honesty**, and a **commitment to build systems that respect both machines and humans**.
-
-Code will follow.
-But posture, boundaries, and responsibility come first.
-
----
