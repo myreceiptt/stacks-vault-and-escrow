@@ -1,6 +1,6 @@
 # Stacks Vault & Escrow
 
-> A conceptual and philosophical foundation before code
+A conceptual and philosophical foundation before code
 
 ---
 
@@ -130,7 +130,7 @@ No UI or code assumptions are made at this stage.
 
 ### Priority 3 — Trust & Power Boundaries
 
-> Who can do what — and what can never be done
+Who can do what — and what can never be done
 
 After defining posture, architecture, and user flows, **Priority 3 locks the trust model of the system**.
 
@@ -168,10 +168,88 @@ The system follows four non-negotiable principles:
 
 ---
 
-### Priority 4+ — Next Steps (Upcoming)
+### Priority 4 — Infrastructure Posture & Failure Modes
 
-- Infrastructure posture and failure modes
+What must survive, what may fail, and how the system degrades
+
+Priority 4 defines how infrastructure supports the protocol **without becoming its authority**.
+
+The system follows four infrastructure principles:
+
+1. **Truth outlives infrastructure**
+2. **Convenience is replaceable**
+3. **Permanence is intentional**
+4. **Graceful degradation is preferred to downtime**
+
+---
+
+#### Data Classification
+
+The system separates data into three categories:
+
+- **On-chain immutable data**
+  Proof hashes, timestamps, ownership, and escrow states.
+  These must survive any off-chain failure.
+
+- **Permanent off-chain data**
+  Receipt images stored with one-time-paid, permanent storage.
+  Gateways may fail; the data itself remains referenced.
+
+- **Mutable off-chain services**
+  Indexing, discovery, search, cache layers, and dispute interfaces.
+  These are replaceable conveniences.
+
+---
+
+#### Indexing Strategy
+
+- The system relies on **public indexing infrastructure plus local caching**.
+- Only **published proofs** are indexed for discovery.
+- Private proofs remain accessible only by owner or direct link/ID.
+
+This choice minimizes operational burden while preserving product clarity.
+
+---
+
+#### Failure Scenarios (Expected Behavior)
+
+- **Indexer unavailable**
+  Proof creation and verification continue; discovery temporarily disappears.
+
+- **Receipt gateway unavailable**
+  Images may not display; proof validity remains unaffected.
+
+- **Admin unavailable**
+  Normal escrow flows continue; disputes queue; emergencies cannot be handled.
+
+- **Network congestion**
+  Transactions slow down transparently without semantic changes.
+
+In all cases:
+
+> Infrastructure failure reduces convenience, not truth.
+
+---
+
+#### Infrastructure Hard Limits
+
+Infrastructure will never:
+
+- Delete proofs
+- Rewrite history
+- Override on-chain rules
+- Silently decide disputes
+
+Infrastructure serves the protocol — it does not govern it.
+
+✅ Completed
+
+---
+
+### Priority 5 — Next Steps (Upcoming)
+
 - Operational risks and human burden
+- Moderation, disputes, and emergency fatigue
 - Technical architecture and contract design
 - UI skeletons and deployment strategy
 
@@ -179,9 +257,9 @@ The system follows four non-negotiable principles:
 
 ---
 
-## 5. Repository Structure (Planned)
+## 6. Repository Structure (Planned)
 
-```txt
+```text
 stacks-vault-and-escrow/
 ├── README.md        # This document
 ├── vault/           # Stacks Proof Vault project
@@ -201,4 +279,3 @@ Deployment plan:
   - Deployed as a dedicated Vercel project
 
 ---
-
