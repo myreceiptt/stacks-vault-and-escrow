@@ -246,14 +246,131 @@ Infrastructure serves the protocol — it does not govern it.
 
 ---
 
-### Priority 5 — Next Steps (Upcoming)
+### Priority 5 — Operational Risks & Burdens
 
-- Operational risks and human burden
-- Moderation, disputes, and emergency fatigue
-- Technical architecture and contract design
-- UI skeletons and deployment strategy
+What costs human attention, and how the system remains sustainable
 
-⏳ Upcoming
+Priority 5 defines the **human cost** of running the system.
+This step exists to ensure the project remains operable **without exhausting its operators** and without creating invisible obligations.
+
+The system accepts a fundamental truth:
+
+> Human attention is finite.
+> A good system protects it.
+
+---
+
+#### Operational Principles
+
+The system follows four operational principles:
+
+1. **Human attention is scarce**
+2. **No invisible obligations exist**
+3. **Queues are preferred over urgency**
+4. **All human responsibility is bounded**
+
+If an operation requires continuous human presence, it is considered a design failure.
+
+---
+
+#### Moderation — Proof Vault & Receipt Images
+
+Because receipt images are stored permanently, moderation is handled **only at the presentation layer**.
+
+**What the system does:**
+
+- Removes problematic items from public discovery
+- Allows reporting of publicly published content
+- Prevents re-promotion of flagged items
+
+**What the system does not do:**
+
+- Delete on-chain facts
+- Retract permanent data
+- Actively moderate private vault content
+
+Moderation controls visibility, **not history**.
+
+---
+
+#### Dispute Operations — Premium by Design
+
+Disputes are intentionally rare and valuable.
+
+- Only premium escrows can enter dispute
+- Disputes are asynchronous and queue-based
+- Arbitrators are not bound by real-time SLAs
+- Decisions are final within their defined scope
+
+Slow resolution is treated as an intentional design choice, not a failure.
+
+---
+
+#### Emergency Operations — Rare and Explicit
+
+Emergency authority exists solely to prevent systemic damage.
+
+- Fast admin may pause or contain issues
+- Multisig governance handles legitimacy and correction
+- All emergency actions are visible and traceable
+
+Emergency powers are safeguards, not managerial tools.
+
+---
+
+#### Monitoring — Minimum Viable Awareness
+
+The system monitors only what is necessary:
+
+- Public index availability
+- Critical escrow errors
+- Unusual transaction activity
+
+It explicitly avoids behavioral surveillance or always-on human monitoring.
+
+---
+
+#### Expectation Management
+
+Users are informed upfront that:
+
+- Disputes are not instant
+- Infrastructure may temporarily degrade
+- Humans intervene only during exceptions
+
+The system does not promise:
+
+- Perfect uptime
+- Instant arbitration
+- Absolute trustlessness without human roles
+
+Honest expectations are part of system safety.
+
+---
+
+#### Burnout Prevention
+
+The system is designed so that:
+
+- No role requires 24/7 availability
+- No emergency is handled silently
+- No single operator carries all responsibility
+
+If the system requires constant vigilance, it has failed by design.
+
+---
+
+#### One-Line Operational Test
+
+If asked:
+
+> _“Can this system operate without consuming a human life?”_
+
+The correct answer must be:
+
+> **Yes — because humans enter the system only when exceptions arise.**
+
+✅ Completed
 
 ---
 
