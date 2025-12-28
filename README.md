@@ -1,13 +1,13 @@
 # Stacks Vault & Escrow
 
-A conceptual and philosophical foundation before code
+> A conceptual and philosophical foundation before code
 
 ---
 
 ## 1. Background — How This Started
 
-This project began from an exploration of the **Stacks blockchain**:
-its relationship to Bitcoin, its security posture, and its unique position as a smart contract layer anchored to Bitcoin finality.
+This project began from an exploration of the **Stacks blockchain**:  
+Its relationship to Bitcoin, its security posture, and its unique position as a smart contract layer anchored to Bitcoin finality.
 
 The initial question was simple but fundamental:
 
@@ -88,7 +88,7 @@ The Escrow acknowledges that:
 
 This project follows a **deliberate, layered approach**, not a code-first one.
 
-### Priority 0 — Product Posture Constitution
+### 4.1 Priority 0 — Product Posture Constitution
 
 Define unchangeable principles:
 
@@ -101,7 +101,7 @@ Define unchangeable principles:
 
 ---
 
-### Priority 1 — Conceptual Architecture
+### 4.2 Priority 1 — Conceptual Architecture
 
 Define the system layers and their responsibilities:
 
@@ -115,7 +115,7 @@ Define failure tolerance and dependency boundaries.
 
 ---
 
-### Priority 2 — Use-Case Flows
+### 4.3 Priority 2 — Use-Case Flows
 
 Describe the system from a human point of view:
 
@@ -128,7 +128,7 @@ No UI or code assumptions are made at this stage.
 
 ---
 
-### Priority 3 — Trust & Power Boundaries
+### 4.4 Priority 3 — Trust & Power Boundaries
 
 Who can do what — and what can never be done
 
@@ -168,7 +168,7 @@ The system follows four non-negotiable principles:
 
 ---
 
-### Priority 4 — Infrastructure Posture & Failure Modes
+### 4.5 Priority 4 — Infrastructure Posture & Failure Modes
 
 What must survive, what may fail, and how the system degrades
 
@@ -180,8 +180,6 @@ The system follows four infrastructure principles:
 2. **Convenience is replaceable**
 3. **Permanence is intentional**
 4. **Graceful degradation is preferred to downtime**
-
----
 
 #### Data Classification
 
@@ -199,17 +197,13 @@ The system separates data into three categories:
   Indexing, discovery, search, cache layers, and dispute interfaces.
   These are replaceable conveniences.
 
----
-
 #### Indexing Strategy
 
 - The system relies on **public indexing infrastructure plus local caching**.
 - Only **published proofs** are indexed for discovery.
-- Private proofs remain accessible only by owner or direct link/ID.
+- Private proofs remain accessible only by the owner or a direct link/ID.
 
 This choice minimizes operational burden while preserving product clarity.
-
----
 
 #### Failure Scenarios (Expected Behavior)
 
@@ -229,8 +223,6 @@ In all cases:
 
 > Infrastructure failure reduces convenience, not truth.
 
----
-
 #### Infrastructure Hard Limits
 
 Infrastructure will never:
@@ -246,7 +238,7 @@ Infrastructure serves the protocol — it does not govern it.
 
 ---
 
-### Priority 5 — Operational Risks & Burdens
+### 4.6 Priority 5 — Operational Risks & Burdens
 
 What costs human attention, and how the system remains sustainable
 
@@ -258,8 +250,6 @@ The system accepts a fundamental truth:
 > Human attention is finite.
 > A good system protects it.
 
----
-
 #### Operational Principles
 
 The system follows four operational principles:
@@ -270,8 +260,6 @@ The system follows four operational principles:
 4. **All human responsibility is bounded**
 
 If an operation requires continuous human presence, it is considered a design failure.
-
----
 
 #### Moderation — Proof Vault & Receipt Images
 
@@ -291,20 +279,16 @@ Because receipt images are stored permanently, moderation is handled **only at t
 
 Moderation controls visibility, **not history**.
 
----
-
 #### Dispute Operations — Premium by Design
 
 Disputes are intentionally rare and valuable.
 
-- Only premium escrows can enter dispute
+- Only premium escrows can enter a dispute
 - Disputes are asynchronous and queue-based
 - Arbitrators are not bound by real-time SLAs
 - Decisions are final within their defined scope
 
 Slow resolution is treated as an intentional design choice, not a failure.
-
----
 
 #### Emergency Operations — Rare and Explicit
 
@@ -316,8 +300,6 @@ Emergency authority exists solely to prevent systemic damage.
 
 Emergency powers are safeguards, not managerial tools.
 
----
-
 #### Monitoring — Minimum Viable Awareness
 
 The system monitors only what is necessary:
@@ -327,8 +309,6 @@ The system monitors only what is necessary:
 - Unusual transaction activity
 
 It explicitly avoids behavioral surveillance or always-on human monitoring.
-
----
 
 #### Expectation Management
 
@@ -346,8 +326,6 @@ The system does not promise:
 
 Honest expectations are part of system safety.
 
----
-
 #### Burnout Prevention
 
 The system is designed so that:
@@ -357,8 +335,6 @@ The system is designed so that:
 - No single operator carries all responsibility
 
 If the system requires constant vigilance, it has failed by design.
-
----
 
 #### One-Line Operational Test
 
@@ -374,7 +350,122 @@ The correct answer must be:
 
 ---
 
-## 6. Repository Structure (Planned)
+### 4.7 Priority 6 — Enforcement Checklists
+
+Translating posture into enforceable rules
+
+Priority 6 converts infrastructure posture (Priority 4) and operational safeguards (Priority 5) into **explicit enforcement rules**.
+
+This section exists to ensure that earlier decisions are not quietly violated during implementation, iteration, or scaling.
+
+If a rule in this checklist is broken,
+the system is considered **out of posture**, not merely “buggy.”
+
+#### Global Enforcement Rules
+
+- On-chain data is always the single source of truth
+- Off-chain infrastructure may enhance usability, but never redefine facts
+- All failures must degrade functionality, not validity
+- No convenience feature may compromise permanence or trust boundaries
+
+#### Proof Vault Enforcement
+
+Proof Creation
+
+- Proof hashes are generated client-side
+- Only hashes and minimal metadata are recorded on-chain
+- All proofs default to PRIVATE visibility
+
+Receipt Images
+
+- Receipt images are stored using one-time-paid permanent storage
+- Receipt images are treated as representations, not truth
+- No mechanism exists to retract or delete stored receipt images
+
+Visibility & Discovery
+
+- Private proofs never appear in public discovery
+- Publishing explicitly opts a proof into indexing and explore
+- Unpublishing removes a proof from discovery only
+- Link/ID-based sharing remains possible regardless of publish state
+
+Indexing
+
+- Public indexing infrastructure is the default
+- Local caching is used for resilience
+- Indexer failure must not block proof creation or verification
+
+#### Micro-Escrow Enforcement
+
+Normal Flow
+
+- Escrow creation and completion require no human intervention
+- Fund locking and release are fully programmatic
+
+Dispute Flow
+
+- Disputes are restricted to premium escrows
+- Entering dispute freezes automatic settlement
+- Dispute resolution actions are auditable and final within scope
+
+#### Admin & Governance Enforcement
+
+Fast Admin
+
+- May pause operations during emergencies
+- May execute temporary fund rescue
+- Must leave a visible action trail
+
+Fast admin may never:
+
+- Rewrite protocol rules
+- Permanently seize user funds
+- Decide disputes on merit
+
+Multisig Governance
+
+- Required for upgrades and role changes
+- Required to ratify or reverse emergency actions
+- Designed to be slow, visible, and accountable
+
+#### Operational Enforcement
+
+Moderation
+
+- Moderation affects discovery, not on-chain records
+- Private vault content is never moderated
+
+Dispute Operations
+
+- Disputes are asynchronous by design
+- No real-time SLA is promised
+
+Emergency Operations
+
+- Emergency powers exist solely for systemic risk mitigation
+- All emergency actions are public
+
+#### Burnout Prevention Rules
+
+- No role requires 24/7 availability
+- No alerts without explicit escalation criteria
+- No single actor controls all critical system paths
+
+If enforcement of a feature requires permanent human vigilance,
+the feature must be redesigned or removed.
+
+#### Final Enforcement Test
+
+Every implementation decision must pass this test:
+
+> **“If all off-chain infrastructure disappears, is truth still verifiable?”**
+
+- If yes → the decision is valid
+- If no → the decision violates system posture
+
+---
+
+## 7. Repository Structure (Planned)
 
 ```text
 stacks-vault-and-escrow/
