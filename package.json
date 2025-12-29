@@ -9,9 +9,9 @@
   "scripts": {
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-    "lint": "eslint .",
-    "typecheck": "tsc -p tsconfig.base.json --noEmit",
-    "build": "echo \"build: apps not scaffolded yet\""
+    "lint": "eslint . && yarn workspace vault lint",
+    "typecheck": "yarn workspace vault typecheck",
+    "build": "yarn workspace vault build"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
