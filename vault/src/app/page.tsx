@@ -24,11 +24,22 @@ export default function Home() {
   }, []);
 
   const handleCreateProof = async () => {
-    const fakeHash = new Uint8Array(32);
+    const fakeHash = crypto.getRandomValues(new Uint8Array(32));
+    const receiptUri = `receipt://${Array.from(fakeHash)
+      .map((byte) => byte.toString(16).padStart(2, '0'))
+      .join('')}`;
     try {
-      await createProof(fakeHash);
+      await createProof(fakeHash, receiptUri);
     } catch (err) {
-      console.warn('createProof cancelled/rejected:', err);
+      const message = err instanceof Error ? err.message : String(err);
+      if (
+        message.toLowerCase().includes('user rejected') ||
+        message.toLowerCase().includes('cancel')
+      ) {
+        console.warn('createProof cancelled by user:', err);
+        return;
+      }
+      console.warn('createProof rejected by node:', err);
     }
   };
 
