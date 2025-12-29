@@ -14,7 +14,7 @@
     "build": "echo \"build: apps not scaffolded yet\""
   },
   "devDependencies": {
-    "eslint": "^9.39.2",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3"
