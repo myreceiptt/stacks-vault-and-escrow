@@ -1,0 +1,14 @@
+{
+  "name": "stacks-vault-and-escrow",
+  "private": true,
+  "packageManager": "yarn@4.6.0",
+  "workspaces": [
+    "vault",
+    "escrow"
+  ],
+  "scripts": {
+    "lint": "echo \"lint: not wired yet\"",
+    "typecheck": "echo \"typecheck: not wired yet\"",
+    "build": "echo \"build: not wired yet\""
+  }
+}
