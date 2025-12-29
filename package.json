@@ -11,7 +11,9 @@
     "format:check": "prettier -c .",
     "lint": "eslint . && yarn workspace vault lint && yarn workspace escrow lint",
     "typecheck": "yarn workspace vault typecheck && yarn workspace escrow typecheck",
-    "build": "yarn workspace vault build && yarn workspace escrow build"
+    "build": "yarn workspace vault build && yarn workspace escrow build",
+    "contracts:check": "cd contracts && clarinet check",
+    "contracts:test": "cd contracts && clarinet test"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
