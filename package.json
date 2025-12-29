@@ -9,9 +9,9 @@
   "scripts": {
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-    "lint": "eslint . && yarn workspace vault lint",
-    "typecheck": "yarn workspace vault typecheck",
-    "build": "yarn workspace vault build"
+    "lint": "eslint . && yarn workspace vault lint && yarn workspace escrow lint",
+    "typecheck": "yarn workspace vault typecheck && yarn workspace escrow typecheck",
+    "build": "yarn workspace vault build && yarn workspace escrow build"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
