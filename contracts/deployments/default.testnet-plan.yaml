@@ -1,0 +1,25 @@
+---
+id: 0
+name: Testnet deployment
+network: testnet
+stacks-node: 'https://api.testnet.hiro.so'
+bitcoin-node: 'http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332'
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: micro-escrow
+            expected-sender: ST29ECHHQ6F9344SGGGRGDPTPFPTXA3GHXGMKMRG1
+            cost: 1220
+            path: escrow/micro-escrow.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: proof-registry
+            expected-sender: ST29ECHHQ6F9344SGGGRGDPTPFPTXA3GHXGMKMRG1
+            cost: 23720
+            path: vault/proof-registry.clar
+            anchor-block-only: true
+            clarity-version: 2
+      epoch: '2.4'
