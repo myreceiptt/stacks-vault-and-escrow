@@ -1,7 +1,11 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { Connect } from '@stacks/connect-react';
+import dynamic from 'next/dynamic';
+
+const Connect = dynamic(() => import('@stacks/connect-react').then((mod) => mod.Connect), {
+  ssr: false,
+});
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
