@@ -149,7 +149,6 @@ The system follows four non-negotiable principles:
 - **Public Viewer**: observes published data only
 - **Arbiter**: resolves disputes within a strictly limited scope
 - **Admin (dual mode)**:
-
   - Fast emergency admin for immediate damage control
   - Slow multisig admin for governance and legitimacy
 
@@ -477,12 +476,10 @@ stacks-vault-and-escrow/
 Deployment plan:
 
 - **Stacks Vault**
-
   - Root directory: `vault/`
   - Deployed as a dedicated Vercel project
 
 - **Stacks Escrow**
-
   - Root directory: `escrow/`
   - Deployed as a dedicated Vercel project
 

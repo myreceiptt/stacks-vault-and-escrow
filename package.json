@@ -7,8 +7,16 @@
     "escrow"
   ],
   "scripts": {
-    "lint": "echo \"lint: not wired yet\"",
-    "typecheck": "echo \"typecheck: not wired yet\"",
-    "build": "echo \"build: not wired yet\""
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.base.json --noEmit",
+    "build": "echo \"build: apps not scaffolded yet\""
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
   }
 }
