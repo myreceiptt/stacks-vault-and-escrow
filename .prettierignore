@@ -17,3 +17,5 @@ yarn.lock
 
 # misc
 coverage
+# Next.js generated file (can vary and may not match repo Prettier config)
+**/next-env.d.ts
