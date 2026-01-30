@@ -1,7 +1,7 @@
 {
   "name": "stacks-vault-and-escrow",
   "private": true,
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.12.0",
   "workspaces": [
     "vault",
     "escrow"
